@@ -1,38 +1,31 @@
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <vector>
-#include <array>
 #include <algorithm>
 #include <list>
-#include <map>
-#include <queue>
-#include <array>
-
-using namespace std;
 
 struct node
 {
-    vector<node*> children;
-    vector<int> metadata;
+    std::vector<node*> children;
+    std::vector<int> metadata;
 };
 
-node* read( istream& o, int& sum )
+node* read( std::istream& o, int& sum )
 {
     int children = 0;
-    int metadata_c = 0;
+    int metadata_count = 0;
     node* new_node = new node;
 
     if ( o.good() )
     {
-        o >> children >> metadata_c;
+        o >> children >> metadata_count;
 
         for ( int i = 0; i < children; ++i )
         {
             new_node->children.push_back( read( o, sum ) );
         }
 
-        for ( int i = 0; i < metadata_c; ++i )
+        for ( int i = 0; i < metadata_count; ++i )
         {
             int tmp = 0;
             o >> tmp;
@@ -60,7 +53,7 @@ int get_value( node* root )
             {
                 sum += get_value( root->children.at( e - 1 ) );
             }
-            catch (...)
+            catch ( ... )
             {
                 // sum += 0;
             }
@@ -79,7 +72,6 @@ int get_value( node* root )
 
 int main()
 {
-    // std::fstream inputf( "test.txt", std::ios::in );
     std::fstream inputf( "input.txt", std::ios::in );
 
     node* root = new node;
@@ -89,8 +81,8 @@ int main()
     root = read( inputf, sum );
     root_value = get_value( root );
 
-    cout << sum << endl;
-    cout << root_value << endl;
+    std::cout << sum << std::endl;
+    std::cout << root_value << std::endl;
 
     return 0;
 }
