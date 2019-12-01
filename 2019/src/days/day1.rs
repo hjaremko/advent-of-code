@@ -1,40 +1,39 @@
-//2018
-use crate::utils::Day;
-use std::collections::HashSet;
+use crate::utils::{parse_to_vec, Day};
 
 pub struct Day1 {
     values: Vec<i32>,
 }
 
+impl Day1 {
+    pub fn reduce(fuel: &i32) -> i32 {
+        (fuel / 3) - 2
+    }
+
+    pub fn fuel_down(fuel: &i32) -> i32 {
+        let mut fuel = Day1::reduce(&fuel);
+        let mut used = 0;
+
+        while fuel > 0 {
+            used += fuel;
+            fuel = Day1::reduce(&fuel);
+        }
+
+        used
+    }
+}
+
 impl Day for Day1 {
     fn new(input: String) -> Self {
-        let input: Vec<i32> = input
-            .split_ascii_whitespace()
-            .map(|x| x.parse().ok().unwrap())
-            .collect();
-
-        Day1 { values: input }
+        Day1 {
+            values: parse_to_vec::<i32>(input),
+        }
     }
 
     fn get_first_solution(&self) -> String {
-        let sum: i32 = self.values.iter().sum();
-        sum.to_string()
+        self.values.iter().map(Day1::reduce).sum::<i32>().to_string()
     }
 
     fn get_second_solution(&self) -> String {
-        let mut frequency = 0;
-        let mut frequencies = HashSet::new();
-
-        for value in self.values.iter().cycle() {
-            frequency += *value;
-
-            if frequencies.contains(&frequency) {
-                return frequency.to_string();
-            }
-
-            frequencies.insert(frequency);
-        }
-
-        "".to_string()
+        self.values.iter().map(Day1::fuel_down).sum::<i32>().to_string()
     }
 }

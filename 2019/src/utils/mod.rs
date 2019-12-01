@@ -2,6 +2,7 @@ use clap::App;
 use reqwest::header::COOKIE;
 use reqwest::Client;
 use std::path::Path;
+use std::str::FromStr;
 use std::{env, fs};
 
 pub trait Day {
@@ -90,4 +91,11 @@ macro_rules! solve {
             println!("PART TWO: {}, {}", time, answer);
         }
     };
+}
+
+pub fn parse_to_vec<T: FromStr>(input: String) -> Vec<T> {
+    input
+        .split_ascii_whitespace()
+        .map(|x| x.parse().ok().unwrap())
+        .collect()
 }
