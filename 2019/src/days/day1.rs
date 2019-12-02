@@ -45,3 +45,55 @@ impl Day for Day1 {
             .to_string()
     }
 }
+
+#[cfg(test)]
+mod part_one {
+    use super::*;
+
+    #[test]
+    fn _12() {
+        let day = Day1::new("12".to_string());
+        assert_eq!(day.get_first_solution(), "2");
+    }
+
+    #[test]
+    fn _14() {
+        let day = Day1::new("14".to_string());
+        assert_eq!(day.get_first_solution(), "2");
+    }
+
+    #[test]
+    fn _1969() {
+        let day = Day1::new("1969".to_string());
+        assert_eq!(day.get_first_solution(), "654");
+    }
+
+    #[test]
+    fn _100756() {
+        let day = Day1::new("100756".to_string());
+        assert_eq!(day.get_first_solution(), "33583");
+    }
+}
+
+#[cfg(test)]
+mod part_two {
+    use super::*;
+
+    #[test]
+    fn _12() {
+        let day = Day1::new("12".to_string());
+        assert_eq!(day.get_second_solution(), "2");
+    }
+
+    #[test]
+    fn _14() {
+        let day = Day1::new("1969".to_string());
+        assert_eq!(day.get_second_solution(), "966");
+    }
+
+    #[test]
+    fn _100756() {
+        let day = Day1::new("100756".to_string());
+        assert_eq!(day.get_second_solution(), "50346");
+    }
+}

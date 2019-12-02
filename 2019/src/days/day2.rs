@@ -1,5 +1,5 @@
-use crate::utils::Day;
 use crate::utils::intcode::IntcodeMachine;
+use crate::utils::Day;
 
 pub struct Day2 {
     machine: IntcodeMachine,

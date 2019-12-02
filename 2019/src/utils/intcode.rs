@@ -57,3 +57,28 @@ impl IntcodeMachine {
         4
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn example() {
+        let machine = IntcodeMachine::new(vec![1, 9, 10, 3, 2, 3, 11, 0, 99, 30, 40, 50, 99]);
+        assert_eq!(machine.execute(9, 10).get(0), 3500);
+    }
+
+    #[test]
+    fn execute_mut() {
+        let mut machine = IntcodeMachine::new(vec![1, 9, 10, 3, 2, 3, 11, 0, 99, 30, 40, 50, 99]);
+        machine.execute_mut(9, 10);
+        assert_eq!(machine.get(0), 3500);
+    }
+
+    #[test]
+    fn execute_not_mut() {
+        let machine = IntcodeMachine::new(vec![1, 9, 10, 3, 2, 3, 11, 0, 99, 30, 40, 50, 99]);
+        machine.execute(9, 10);
+        assert_eq!(machine.get(0), 1);
+    }
+}
