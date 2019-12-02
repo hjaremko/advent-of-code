@@ -17,6 +17,9 @@ fn main() {
         "1" => {
             solve!(1, input);
         }
+        "2" => {
+            solve!(2, input);
+        }
         _ => {
             println!("Day {}-{} not yet supported", day, year);
         }

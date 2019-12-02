@@ -5,6 +5,8 @@ use std::path::Path;
 use std::str::FromStr;
 use std::{env, fs};
 
+pub mod intcode;
+
 pub trait Day {
     fn new(input: String) -> Self;
     fn get_first_solution(&self) -> String;

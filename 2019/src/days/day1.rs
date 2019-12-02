@@ -30,10 +30,18 @@ impl Day for Day1 {
     }
 
     fn get_first_solution(&self) -> String {
-        self.values.iter().map(Day1::reduce).sum::<i32>().to_string()
+        self.values
+            .iter()
+            .map(Day1::reduce)
+            .sum::<i32>()
+            .to_string()
     }
 
     fn get_second_solution(&self) -> String {
-        self.values.iter().map(Day1::fuel_down).sum::<i32>().to_string()
+        self.values
+            .iter()
+            .map(Day1::fuel_down)
+            .sum::<i32>()
+            .to_string()
     }
 }
