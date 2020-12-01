@@ -1,7 +1,7 @@
-use crate::utils::{get_day_year, Day, init};
-use std::time::SystemTime;
+use crate::utils::{get_day_year, init, Day};
 use aoc_fetch::load_or_fetch_input;
-use log::{error, LevelFilter};
+use log::{error, info, warn, LevelFilter};
+use std::time::SystemTime;
 
 pub mod days;
 
@@ -29,7 +29,7 @@ fn main() {
             solve!(1, input);
         }
         _ => {
-            println!("Day {}-{} not yet supported", day, year);
+            warn!("Day {}-{} not yet implemented", day, year);
         }
     };
 }

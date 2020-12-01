@@ -1,5 +1,5 @@
-use clap::App;
 use aoc_fetch::AocInput;
+use clap::App;
 
 pub trait Day {
     fn new(input: AocInput) -> Self;
@@ -28,13 +28,13 @@ macro_rules! measure {
 
 macro_rules! solve {
     ($day:expr, $input:expr) => {
-        println!("⋆ DAY {} ⋆", $day);
+        info!("Day {}", $day);
         paste::expr! {
             let day = days::[<day $day>]::[<Day $day>]::new($input);
             let (answer, time) = measure!(day, get_first_solution);
-            println!("PART ONE: {}, {}", time, answer);
+            info!("Part one: {}, {}", time, answer);
             let (answer, time) = measure!(day, get_second_solution);
-            println!("PART TWO: {}, {}", time, answer);
+            info!("Part two: {}, {}", time, answer);
         }
     };
 }
