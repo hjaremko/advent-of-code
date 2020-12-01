@@ -1,0 +1,14 @@
+[package]
+name = "aoc2020"
+version = "0.1.0"
+authors = ["hjaremko <hjaremko@outlook.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+paste = "0.1"
+clap = {version = "2.33", features = ["yaml"]}
+aoc-fetch = { git = "https://github.com/hjaremko/aoc-fetch", branch = "work" }
+log = { version = "0.4", features = ["max_level_debug", "release_max_level_info"] }
+termcolor = "1.1"

@@ -1,0 +1,17 @@
+name: Advent of Code 2020
+version: "0.1.0"
+author: hjaremko <hjaremko@outlook.com>
+about: Advent of Code 2020 solutions in Rust
+args:
+    - day:
+        short: d
+        long: day
+        value_name: DAY
+        help: Day to solve
+        takes_value: true
+    - year:
+        short: y
+        long: year
+        value_name: YEAR
+        help: Event year
+        takes_value: true
