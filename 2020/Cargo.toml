@@ -12,3 +12,4 @@ clap = {version = "2.33", features = ["yaml"]}
 aoc-fetch = { git = "https://github.com/hjaremko/aoc-fetch", branch = "master" }
 log = { version = "0.4", features = ["max_level_debug", "release_max_level_info"] }
 termcolor = "1.1"
+itertools = "0.9"
