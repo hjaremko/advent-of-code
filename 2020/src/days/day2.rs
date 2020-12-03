@@ -1,6 +1,5 @@
 use crate::utils::Day;
 use aoc_fetch::AocInput;
-use log::debug;
 
 pub struct Day2 {
     values: Vec<Pass>,
