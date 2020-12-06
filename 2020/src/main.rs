@@ -45,6 +45,10 @@ fn main() {
             solve!(5, input);
         }
 
+        "6" => {
+            solve!(6, input);
+        }
+
         _ => {
             warn!("Day {}-{} not yet implemented", day, year);
         }
